@@ -52,8 +52,6 @@ $ git clone http://github.com/vingtetun/planula.git planula
 ```
 
  Currently Planula needs a couple of small patches to run on top of Gecko (e.g allow about: pages to be loaded into a mozbrowser iframe), but many parts should work by default on top of Firefox Nightly.
- 
- **TODO** > upload this set of patches to the repo
 
 The project comes with its own built-in httpd daemon serving resources on port 8081.
 You need to specify the absolute path of the directory containing planula as an ENV variable called MOZ_BASE_DIR.
@@ -68,7 +66,7 @@ $ MOZ_BASE_DIR=/path/to/planula firefox -profile planula/config/profile
 
 Planula use a number of technologies to make it works properly:
 * ["The Web"] - HTML/JS/CSS are used to craft the build the interface
-* ["The internet"] - The code chrome (toolbar, tab strip, tabs) is loaded on https
+* ["The Internet"] - The code chrome (toolbar, tab strip, tabs) is loaded on https
 * [Browser API] - aka mozbrowser API, to load web pages from HTML
 * [Service Workers] - Offline support for the chrome
 * [Support Web Extensions] - User Interface features are implemented as Web extensions
@@ -96,13 +94,12 @@ Also it seems extremelly hard to try to convert all of Firefox in once, whatever
 And making something modular, or context agnostic, when you have only one consumer is often tricky.
 
 Because of those reasons, it seems reasonable to create a small shell, acting as a new consumer for some specific browser chrome needs.
-**some specific browser chrome needs??**
 Planula will then try to reuse as much as possible from Firefox by cleaning some pieces of code that relies on some browser.xul specificities, and when possible, upstream those changes.
-Planula also makes the assertions that some of the chrome will always be written using Web Technologies, such as UA in-content pages (e.g about:home), or chrome features (e.g Download Manager). **no, devtools and about:addons are using xul, not an issue!**
+Planula also makes the assertions that some of the chrome will always be written using Web Technologies (e.g about:home, about:newtab). That without preventing reusing existing self contained components using XUL like DevTools or the Addon Manager.
 We believe that working on isolating those pieces, to reuse them in our small shell will not be lost work, whatever technologies for the front-end is choosen in the future.
 We also believe that making those consumers specifities agnostic may make it easier to migrate to Servo one day.
 Lastly, there are some others initiatives at Mozilla to explore HTML based UI for the browsers, such as browser.html and Hope.
-By implementing our own HTML shell, it will be easier for those to s/reuse some Firefox parts./integrate with gecko/.
+By implementing our own HTML shell, it will be easier for those to integrate with gecko.
 
 #### What are the current need of the project ?
 Like many projects: time, resources and supports.
@@ -110,7 +107,6 @@ Like many projects: time, resources and supports.
 The 2 current maintainers are not officialy dedicated to this project, and even if they were, 2 persons is not enough. Futhermore, because of the will to reuse existing parts and make them independent adding new people and finding them specific tasks is easy and will be highly beneficial to the project.
 Also, with Firefox OS and most of its codebase beeing shifted to Tier-3, we would like to ensure some parts stay under maintenance and under the radar of the platform. Mostly the Browser API so far.
 We need support if we start providing patches against gecko. These patches would mostly be about:
- * supporting <html:iframe mozbrowser> rather than <xul:browser>,
- * stop assuming the top level browser is browser.xul and access its Javascript internal (like gBrowser) and instead use WebExtension APIs to interact with the browser,
+ * supporting &lt;html:iframe mozbrowsertgt; rather than &lt;xul:browser&gt;,
+ * stop assuming the top level browser is browser.xul and accessing its Javascript internal (like gBrowser) and instead use WebExtension APIs to interact with the browser,
  * maintain and enhance mozbrowser API.
-
