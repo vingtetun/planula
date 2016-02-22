@@ -1,0 +1,126 @@
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  font-family: sans-serif;
+  pointer-events: none;
+  overflow-y: visible;
+}
+
+#content {
+  border-style: solid;
+  border-color: #B0AEB0;
+  border-width: 1px;
+  border-top: 0;
+}
+
+#engines {
+  border-top: 0.1rem solid #dedede;
+  width: 100%;
+  height: 2.6rem;
+  background-color: #ececec;
+}
+
+#engines-container {
+  float: right;
+  margin-top: -0.1rem;
+}
+
+.engine {
+  float: left;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 0.1rem solid transparent;
+  border-top: 0;
+  border-bottom-left-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+  background-color: transparent;
+  margin-right: 0.2rem;
+  background-size: 1.6rem 1.6rem;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.engine.selected {
+  background-color: white;
+  border-color: #dedede;
+}
+
+.engine:not(.selected) {
+  filter: grayscale(100%);
+}
+
+.results {
+  /* 
+   The width of the results are all the screen, but the height
+   depends on the inner content.
+   */
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+
+  /*
+   Ensure that results get pointer events. This is here because
+   the frame is contained into an iframe with mozpasspointerevents,
+   and the html, body of this iframe ignore pointer-events.
+   */
+  pointer-events: auto;
+
+  background-color: rgba(255, 255, 255, 1);
+
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.result {
+  width: 100%;
+  height: 2.4rem;
+  line-height: 2.4rem;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  font-size: 1.4rem;
+  vertical-align: middle;
+
+  background-repeat: no-repeat;
+  background-size: 19px 19px;
+  background-position: 0.4rem center;
+
+  margin: 0;
+  padding-left: 2.8rem;
+}
+
+.result * {
+  pointer-events: none;
+}
+
+.result:hover,
+.result[selected] {
+  background-color: lightblue;
+}
+
+.result.url {
+  background-image: url(../resources/url.png);;
+}
+
+.result.suggestion {
+  background-image: url(../resources/search.png);;
+}
+
+.result.history {
+  color: green;
+  background-image: url(../resources/http.png);;
+}
+
+.result.bookmark {
+  background-image: none;
+}
+
+.result > .title {
+  color: grey;
+}
+

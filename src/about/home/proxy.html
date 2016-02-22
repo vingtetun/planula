@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="/src/shared/js/bridge/client.js" defer></script>
+    <script src="/src/services/services.js" defer></script>
+
+    <script>
+      var bc = new BroadcastChannel('SearchService');
+      bc.postMessage({type: 'Yo'});
+
+      addEventListener('message', function(msg) {
+        let data = msg.data;
+        if (data.isTab) {
+          Services.tabs.method('add', {url: data.url, select: true});
+        } else {
+          Services.windows.method('open', {url: data.url});
+        }
+      });
+    </script>
+
+    <style>
+      html, body {
+        background-color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+  <body>
+</html>

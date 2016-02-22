@@ -1,0 +1,15 @@
+# This file has default permissions for the permission manager.
+# The file-format is strict:
+# * matchtype \t type \t permission \t host
+# * "origin" should be used for matchtype, "host" is supported for legacy reasons
+# * type is a string that identifies the type of permission (e.g. "cookie")
+# * permission is an integer between 1 and 15
+# See nsPermissionManager.cpp for more...
+
+# Browser API access
+origin	browser	1	http://browserhtml.org:8081
+origin	popup	1	http://browserhtml.org:8081^inBrowser=1
+origin	browser	1	http://browserhtml.org:8081^inBrowser=1
+origin	embed-apps	1	http://browserhtml.org:8081^inBrowser=1
+origin	systemXHR	1	http://browserhtml.org:8081^inBrowser=1
+origin	browser:universalxss	1	http://browserhtml.org:8081^inBrowser=1

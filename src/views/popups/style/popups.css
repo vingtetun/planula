@@ -1,0 +1,61 @@
+html, body {
+  background-color: transparent;
+  pointer-events: none;
+}
+
+.window {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1002;
+}
+
+.window[hidden] {
+  display: block;
+  visibility: hidden;
+}
+
+.window > iframe {
+  position: absolute;
+  top: 0;
+  height: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: auto;
+}
+
+.window.popup {
+  background-color: transparent;
+}
+
+.window.popup > iframe {
+  top: 9px;
+  background-color: white;
+
+  border-top: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-left: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+
+  -moz-border-top-colors: ThreeDShadow -moz-Dialog;
+  -moz-border-right-colors: ThreeDShadow -moz-Dialog;
+  -moz-border-left-colors: ThreeDShadow -moz-Dialog;
+  -moz-border-bottom-colors: ThreeDShadow -moz-Dialog;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+.window.popup > .arrow {
+  background-image: url(images/panelarrow-vertical.svg);
+  background-repeat: no-repeat;
+
+  position: absolute;
+  top: 0;
+  left: 3px;
+  width: 21px;
+  height: 10px;
+  z-index: 1;
+}
+

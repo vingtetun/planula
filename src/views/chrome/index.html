@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+
+    <link rel='stylesheet' href='/src/shared/style/layout.css'>
+    <link rel='stylesheet' href='style/core.css'>
+    <link rel='stylesheet' href='style/navbar.css'>
+    <link rel='stylesheet' href='style/findbar.css'>
+
+    <script src='/src/shared/js/bridge/client.js' defer></script>
+    <script src='/src/shared/js/bridge/service.js' defer></script>
+    <script src='/src/services/services.js' defer></script>
+    <script src='/src/shared/js/os.js' defer></script>
+
+    <!-- Module handling -->
+    <!-- All further JS code is loaded from javascript -->
+    <script data-main='js/startup' src='/src/shared/js/lib/require.js' defer></script>
+  </head>
+
+  <body>
+    <div id='outervbox' class="browsers">
+      <template id="toolbar-template">
+        <div id='toolbar-buttons'></div>
+      </template>
+
+      <template id="urlbar-template">
+        <div class='urlbar' flex='1' align='center'>
+          <div class='identity'></div>
+          <input placeholder='Search or enter address' class='urlinput' flex='1'></input>
+        </div>
+      </template>
+
+      <template id="chrome-template">
+        <style scoped>
+          @import url('/src/shared/style/layout.css');
+          @import url('style/core.css');
+          @import url('style/navbar.css');
+          @import url('style/findbar.css');
+        </style>
+        <div flex='1' direction='column'>
+          <div flex='0' class='navbar toolbar' align='center'>
+            <button class='back-button disabled' title='Go back one page'></button>
+            <button class='forward-button disabled' title='Go forward one page'></button>
+            <button class='reload-button' title='Reload current page'></button>
+            <button class='stop-button' title='Stop loading this page'></button>
+
+            <urlbar-element flex="1"></urlbar-element>
+            <toolbar-element></toolbar-element>
+          </div>
+
+          <div id='outerhbox' flex='1'>
+            <div class='iframes' flex='1'></div>
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <div class='findbar'>
+      <div class='search-input'>
+        <input class='search'></input>
+        <button class='button next'></button>
+        <button class='button previous'></button>
+      </div>
+      <button class='button close'></button>
+    </div>
+  </body>
+</html>

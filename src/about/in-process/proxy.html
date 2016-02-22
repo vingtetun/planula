@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="/src/shared/js/bridge/client.js" defer></script>
+    <script src="/src/services/services.js" defer></script>
+
+    <script>
+      addEventListener('message', function(msg) {
+        // generate a fake keypress event.
+        let data = msg.data;
+        Services.shortcuts.method('on', {
+          key: data.key,
+          keyCode: data.keyCode,
+          ctrlKey: data.ctrlKey,
+          shiftKey: data.shiftKey,
+          metaKey: data.metaKey,
+          altKey: data.altKey
+        });
+      });
+    </script>
+
+    <style>
+      html, body {
+        background-color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+  <body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <title>about:home</title>
+
+    <link rel="icon" type="image/png" id="favicon"
+          href="style/resources/icon32.png">
+    <link rel="stylesheet" type="text/css" media="all"
+          href="style/contentSearchUI.css">
+    <link rel="stylesheet" type="text/css" media="all" defer="defer"
+          href="style/aboutHome.css">
+
+    <script type="text/javascript;version=1.8"
+            src="js/aboutHome.js"></script>
+    <script type="text/javascript;version=1.8"
+            src="js/contentSearchUI.js"></script>
+  </head>
+
+  <body>
+    <div class="spacer"></div>
+    <div id="topSection">
+      <div id="brandLogo"></div>
+
+      <div id="searchIconAndTextContainer">
+        <div id="searchIcon"></div>
+        <input type="text" name="q" value="" id="searchText" maxlength="256"
+               aria-label="" autofocus="autofocus"
+               dir="auto"></input>
+        <input id="searchSubmit" type="button" value="" onclick="onSearchSubmit(event)"
+               aria-label=""></input>
+      </div>
+
+      <div id="snippetContainer">
+        <div id="defaultSnippets" hidden="true">
+          <span id="defaultSnippet1">Yo default snippet</span>
+          <span id="defaultSnippet2">ya! I'm here</span>
+        </div>
+        <span id="rightsSnippet" hidden="true">WTF?</span>
+        <div id="snippets"></div>
+      </div>
+    </div>
+    <div class="spacer"></div>
+
+    <div id="launcher">
+      <button class="launchButton" id="downloads">Downloads</button>
+      <button class="launchButton" id="bookmarks">Bookmarks</button>
+      <button class="launchButton" id="history">History</button>
+      <button class="launchButton" id="apps">Apps</button>
+      <button class="launchButton" id="addons">Add-ons</button>
+      <button class="launchButton" id="sync">Sync</button>
+      <button class="launchButton" id="settings">Preferences</button>
+      <div id="restorePreviousSessionSeparator"></div>
+      <button class="launchButton" id="restorePreviousSession">Restore Previous Session</button>
+    </div>
+
+    <a id="aboutMozilla" href="https://www.mozilla.org/about/?utm_source=about-home&amp;utm_medium=Referral"></a>
+  </body>
+</html>
+

@@ -1,0 +1,13 @@
+
+#tooltip {
+  position: absolute;
+  font-size: 1.4rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 0.1rem solid rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 0.2rem;
+  max-width: 25%;
+  max-height: 20%;
+  border-radius: 0.3rem;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+
+    <link rel='stylesheet' href='style/browser.css'>
+
+    <script src='/src/shared/js/bridge/client.js' defer></script>
+    <script src='/src/services/services.js' defer></script>
+  </head>
+
+  <body>
+    <iframe hidden src="controllers/"></iframe>
+
+    <!--
+      This part hosts <iframe mozbrowser> content.
+      This is one of the only part of the html browser that can not
+      be reloaded on the fly without content loss.
+    -->
+    <div id="content">
+    </div>
+  </body>
+</html>

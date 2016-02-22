@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+
+    <link rel='stylesheet' href='/src/shared/style/layout.css'>
+    <link rel='stylesheet' href='style/tabs.css'>
+    <link rel='stylesheet' href='style/tab.css'>
+
+    <script src='/src/shared/js/os.js' defer></script>
+    <script src='/src/shared/js/bridge/client.js'></script>
+    <script src='/src/shared/js/bridge/service.js' defer></script>
+    <script src='/src/services/services.js' defer></script>
+
+    <!-- Module handling -->
+    <!-- All further JS code is loaded from javascript -->
+    <script defer data-main='js/apis' src='/src/shared/js/lib/require.js'></script>
+  </head>
+
+  <body>
+    <div id='tabs' flex="1" class='toolbar'></div>
+    <div hidden='true' class='dummy-tab-curve'></div>
+  </body>
+</html>

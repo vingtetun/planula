@@ -1,0 +1,4 @@
+resource webextensions api/
+
+override chrome://browser/content/ext-browserAction.js resource://webextensions/browserAction.js
+override chrome://browser/content/ext-tabs.js resource://webextensions/tabs.js

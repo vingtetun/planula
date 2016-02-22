@@ -1,0 +1,114 @@
+
+.findbar {
+  position: absolute;
+  right: 15px;
+  top: 39px;
+  width: 25%;
+  height: 28px;
+  background-color: #ededed;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border: 1px solid #a1a1a1;
+  border-top: 0;
+  display: none;
+  pointer-events: auto;
+}
+
+.findbar.visible {
+  display: block;
+}
+
+.findbar > .search-input {
+  position: absolute;
+  height: 27px;
+  width: calc(100% - 24px - 6px);
+  border-radius: 2px;
+  margin: 0 3px 0 3px;
+}
+
+.search-input > .search {
+  position: absolute;
+  top: 1px;
+  height: 25px;
+  padding-left: 4px;
+  width: calc(100% - 24px - 6px);
+
+  background-color: white;
+  border: 1px solid #a1a1a1;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+  border-right: 0;
+  box-sizing: border-box;
+}
+
+.search-input > .next {
+  position: absolute;
+}
+
+.search-input > .previous {
+  position: absolute;
+}
+
+.findbar .button {
+  background-position: center 6px;
+  background-repeat: no-repeat;
+  background-color: #ededed;
+  background-size: 16px 16px;;
+  margin: 0 3px 0 3px;
+  height: 24px;
+  width: 24px;
+  box-sizing: border-box;
+}
+
+.search-input .button {
+}
+
+.findbar > .close {
+  position: absolute;
+  right: 0;
+
+  background-image: url(../resources/find/close.png);
+}
+
+.findbar > .close:hover {
+  background-image: url(../resources/find/close_hover.png);
+}
+
+
+.findbar .previous {
+  width: 28px;
+  height: 27px;
+  background-image: url(../resources/find/prev.png);
+  background-size: 28px 27px;
+  background-position: left top;
+
+  overflow: hidden;
+  right: 27px;
+}
+
+.findbar .previous:hover {
+  background-image: url(../resources/find/prev_hover.png);
+}
+
+.findbar .previous:hover:active {
+  background-image: url(../resources/find/prev_pressed.png);
+}
+
+.findbar .next {
+  width: 28px;
+  height: 27px;
+  background-image: url(../resources/find/next.png);
+  background-size: 28px 27px;
+  background-position: left top;
+
+  overflow: hidden;
+  right: 0;
+}
+
+.findbar .next:hover {
+  background-image: url(../resources/find/next_hover.png);
+}
+
+.findbar .next:hover:active {
+  background-image: url(../resources/find/next_pressed.png);
+}
