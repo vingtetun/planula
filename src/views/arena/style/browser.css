@@ -13,6 +13,11 @@ html, body, browser-element, iframe {
   font-size: 10px;
 }
 
+browser-element {
+  visibility: hidden;
+}
+
 browser-element[selected] {
+  visibility: visible;
   z-index: 1;
 }

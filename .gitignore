@@ -1,0 +1,8 @@
+.gitconfig
+.patches
+node_modules/
+*.swp
+*.swo
+*.swn
+*.swm
+*~

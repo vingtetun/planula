@@ -1,0 +1,6 @@
+[submodule "src/shared/js/bridge"]
+	path = src/shared/js/bridge
+	url = https://github.com/fxos-components/bridge
+[submodule "src/shared/js/sww"]
+	path = src/shared/js/sww
+	url = http://github.com/fxos-components/serviceworkerware.git
