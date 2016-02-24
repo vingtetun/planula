@@ -67,14 +67,6 @@ require([], function() {
     this.config = config;
     this.dom = tab;
 
-    this.client =
-      bridge.client(config.uuid, new BroadcastChannel(config.uuid), 60000);
-
-    this.client.on('update', (config) => {
-      this.config = config;
-      this.updateDom();
-    });
-
     tabscontainer.appendChild(this.dom);
     this.updateDom();
   }
@@ -134,11 +126,16 @@ require([], function() {
 
   var Tabs = Services.tabs;
 
+  Tabs.on('update', (detail) => {
+    let tab = allTabs.get(detail.uuid);
+    tab.config = detail;
+    tab.updateDom();
+  });
+
+
   Tabs.on('move', (detail) => {
     let tab = allTabs.get(detail.uuid);
-    if (tab) {
-      tab.move(detail.direction);
-    }
+    tab.move(detail.direction);
   });
 
   Tabs.on('add', (detail) => {
@@ -148,24 +145,18 @@ require([], function() {
 
   Tabs.on('remove', (detail) => {
     let tab = allTabs.get(detail.uuid);
-    if (tab) {
-      tab.destroy();
-      allTabs.delete(detail.uuid);
-    }
+    tab.destroy();
+    allTabs.delete(detail.uuid);
   });
 
   Tabs.on('select', (detail) => {
     let tab = allTabs.get(detail.uuid);
-    if (tab) {
-      tab.select();
-    }
+    tab.select();
   });
 
   Tabs.on('unselect', (detail) => {
     let tab = allTabs.get(detail.uuid);
-    if (tab) {
-      tab.unselect();
-    }
+    tab.unselect();
   });
 
   /* Build curved tabs */

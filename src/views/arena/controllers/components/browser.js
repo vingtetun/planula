@@ -324,7 +324,6 @@ define([
         History.method('updateTitle', this._location, this._title);
         break;
       case 'mozbrowserlocationchange':
-        this.userInput = '';
         this._location = e.detail;
         History.method('update', this._location);
         break;

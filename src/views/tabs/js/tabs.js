@@ -19,6 +19,14 @@ function(UUID) {
   const kUseSessionRestore = false;
 
   let _tabsArray = [];
+
+  // XXX Could be faster with a hash map instead.
+  function getIndexForUUID(uuid) {
+    return _tabsArray.findIndex(function(config) {
+      return config.uuid === uuid;
+    });
+  };
+
   let _selectIndex = -1;
 
   const Tabs = {
@@ -49,7 +57,7 @@ function(UUID) {
     },
 
     add: function(options={}) {
-      var config = {
+      let config = {
         url: options.url || '',
         title: options.title || '',
         favicon: options.favicon || '',
@@ -59,6 +67,19 @@ function(UUID) {
       _tabsArray.push(config);
 
       this.service.broadcast('add', config);
+
+      let client = bridge.client(
+        config.uuid,
+        new BroadcastChannel(config.uuid),
+        60000
+      );
+
+      client.on('update', (changes) => {
+        let index = getIndexForUUID(config.uuid);
+        changes.uuid = config.uuid;
+        _tabsArray.splice(index, 1, changes);
+        this.service.broadcast('update', changes);
+      });
 
       if (options.select) {
         this.select(config.uuid);
@@ -72,10 +93,7 @@ function(UUID) {
         uuid = this.getSelected().uuid;
       }
 
-      let index = _tabsArray.findIndex(function(config) {
-        return config.uuid === uuid;
-      });
-
+      let index = getIndexForUUID(uuid);
       if (index < 0) {
         throw new Error('Unknown tab');
       }
@@ -105,9 +123,7 @@ function(UUID) {
     },
 
     select: function(uuid) {
-      let index = _tabsArray.findIndex(function(config) {
-        return config.uuid === uuid;
-      });
+      let index = getIndexForUUID(uuid);
 
       if (index < 0) {
         throw new Error('Unknown tab');
